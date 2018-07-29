@@ -1,0 +1,21 @@
+server:
+  port: 8709
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/city
+    username: root
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8701/eureka/
+    registry-fetch-interval-seconds: 30
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
